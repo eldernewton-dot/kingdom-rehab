@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Rehab - Empowering Lives, Enriching Communities</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 85, 48, 0.8), rgba(74, 124, 89, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f5e8" width="1200" height="600"/><path fill="%23c8e6c9" d="M0 400l50-16.7c50-16.6 150-50 250-50s200 33.4 250 50 150 16.7 200 0 150-50 250-33.4c100 16.7 200 66.7 250 83.4l50 16.6V600H0z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c5530;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            display: block;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #2c5530, #4a7c59);
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: #2c5530;
+            margin-bottom: 1rem;
+        }
+
+        /* Core Areas */
+        .core-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .area-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .area-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,107,107,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .area-card:hover::before {
+            opacity: 1;
+            top: -10%;
+            left: -10%;
+        }
+
+        .area-card:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .area-icon {
+            font-size: 2.5rem;
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
+
+        /* Leadership Section */
+        .leadership-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 3rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leadership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44,85,48,0.05), rgba(74,124,89,0.05));
+            z-index: -1;
+        }
+
+        .leader-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4a7c59, #2c5530);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Donation Section */
+        .donation-section {
+            background: linear-gradient(135deg, #2c5530, #4a7c59);
+            color: white;
+        }
+
+        .donation-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .donation-amounts {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .amount-btn {
+            padding: 15px 25px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .amount-btn:hover, .amount-btn.active {
+            background: rgba(255,255,255,0.3);
+            border-color: white;
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a2e1d;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: #4a7c59;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: #ff6b6b;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Interactive elements */
+        .interactive-hover {
+            transition: all 0.3s ease;
+        }
+
+        .interactive-hover:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-hands-helping"></i>
+                Kingdom Rehab
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Lives, Enriching Communities</h1>
+                <p>Transforming lives globally through kingdom principles in housing, healthcare, nutrition, and economic sustainability.</p>
+                <div class="cta-buttons">
+                    <a href="#donate" class="btn btn-primary">Donate Now</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Purpose</h2>
+            <div class="mission-vision">
+                <div class="mission-card interactive-hover">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="card-title">Our Mission</h3>
+                    <p>At Kingdom Rehab, our mission is to transform lives globally by infusing kingdom principles into our core areas of action: housing, healthcare, nutrition, and economic sustainability. We are dedicated to creating and nurturing effective partnerships and collaborations with like-minded organizations, aiming to foster holistic development and enduring positive change in individuals and communities. Our approach is rooted in compassion, innovation, and a deep commitment to addressing the fundamental needs of those we serve, ensuring every individual has the opportunity to thrive in a supportive and sustainable environment.</p>
+                </div>
+                <div class="vision-card interactive-hover">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="card-title">Our Vision</h3>
+                    <p>Kingdom Rehab envisions a world where every individual has access to safe housing, quality healthcare, nutritious food, and the means for economic sustainability. We strive to be a catalyst for global change, embodying kingdom principles in every initiative and collaboration. Our vision is a world where communities are empowered, self-sustaining, and flourishing – a world where the dignity and potential of every individual are recognized and nurtured. Through steadfast partnerships and innovative approaches, we aspire to set a standard in humanitarian efforts, making a lasting impact and paving the way for a brighter, more equitable future for all.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Areas Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Core Areas of Impact</h2>
+            <div class="core-areas">
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Housing</h3>
+                    <p>Providing safe, sustainable housing solutions that create stable foundations for individuals and families to build their futures.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>Ensuring access to quality healthcare services that promote physical, mental, and spiritual well-being for all community members.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Nutrition</h3>
+                    <p>Addressing food security through sustainable nutrition programs that nourish bodies and strengthen communities.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Economic Sustainability</h3>
+                    <p>Creating pathways to economic independence through skills development, job training, and entrepreneurship opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Leadership</h2>
+            <div class="leadership-card">
+                <div class="leader-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3 style="font-size: 2rem; color: #2c5530; margin-bottom: 1rem;">Founder & Executive Director</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                    Kingdom Rehab is led by Dr. Earl Newton, a visionary pastor, educator, and life coach whose life's work embodies the mission of holistic transformation. With decades of leadership in ministry, community development, and nonprofit innovation, Dr. Newton brings a rare blend of spiritual wisdom and practical expertise. His deep commitment to sustainable impact—rooted in kingdom principles—has fueled initiatives in housing, healthcare, nutrition, and economic empowerment across the globe. Under his guidance, Kingdom Rehab is not just expanding its reach, but restoring dignity, rebuilding lives, and creating lasting change in underserved communities worldwide.
+                </p>
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #e9ecef;">
+                    <p style="font-style: italic; color: #4a7c59; font-size: 1.1rem;">
+                        "Together, we can create a world where every individual has the opportunity to thrive in dignity and hope."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="section donation-section">
+        <div class="container">
+            <div class="donation-content">
+                <h2 class="section-title" style="color: white;">Support Our Mission</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Your generous donation helps us continue our vital work in transforming lives and enriching communities worldwide. Every contribution makes a meaningful difference.</p>
+                
+                <div class="donation-amounts">
+                    <button class="amount-btn" onclick="selectAmount(25)">$25</button>
+                    <button class="amount-btn" onclick="selectAmount(50)">$50</button>
+                    <button class="amount-btn" onclick="selectAmount(100)">$100</button>
+                    <button class="amount-btn" onclick="selectAmount(250)">$250</button>
+                    <button class="amount-btn" onclick="selectAmount(500)">$500</button>
+                    <button class="amount-btn" onclick="selectAmount(0)">Other</button>
+                </div>
+
+                <div style="margin: 2rem 0;">
+                    <input type="number" id="donationAmount" placeholder="Enter amount" style="padding: 15px; border: none; border-radius: 25px; width: 200px; text-align: center; font-size: 1.1rem; margin-right: 1rem;">
+                    <button onclick="processDonation()" class="btn btn-primary">Donate Now</button>
+                </div>
+
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                    <h3 style="margin-bottom: 1rem;">Other Ways to Give</h3>
+                    <p>For large donations, corporate partnerships, or planned giving opportunities, please contact us directly. We also accept donations via check, wire transfer, or cryptocurrency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Get in touch with our team for partnerships, volunteering opportunities, or general inquiries.</p>
+                    <a href="mailto:info@kingdomrehab.org" style="color: #4a7c59; font-weight: 600; text-decoration: none;">info@kingdomrehab.org</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with our team about how you can get involved or support our mission.</p>
+                    <a href="tel:+16022142771" style="color: #4a7c59; font-weight: 600; text-decoration: none;">+1 (602) 214-2771</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p>Stop by our headquarters to learn more about our programs and meet our dedicated team.</p>
+                    <p style="color: #4a7c59; font-weight: 600;">4628 South 7th Street<br>Phoenix, AZ 85040</p>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e9ecef;">
+                        <strong style="color: #2c5530;">Mailing Address:</strong><br>
+                        <span style="color: #4a7c59; font-weight: 600;">P.O. Box 8069<br>Phoenix, Arizona 85066</span>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Volunteer</h3>
+                    <p>Join our community of volunteers and make a direct impact in the lives of those we serve.</p>
+                    <a href="mailto:volunteer@kingdomrehab.org" style="color: #4a7c59; font-weight: 600; text-decoration: none;">volunteer@kingdomrehab.org</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Kingdom Rehab. All rights reserved. | Empowering Lives, Enriching Communities</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                A 501(c)(3) non-profit organization dedicated to transforming lives through kingdom principles.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Donation amount selection
+        function selectAmount(amount) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Set the input value
+            const input = document.getElementById('donationAmount');
+            if (amount === 0) {
+                input.focus();
+                input.value = '';
+            } else {
+                input.value = amount;
+            }
+        }
+
+        // Process donation (placeholder function)
+        function processDonation() {
+            const amount = document.getElementById('donationAmount').value;
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid donation amount.');
+                return;
+            }
+            
+            // In a real implementation, this would integrate with a payment processor
+            alert(`Thank you for your generous donation of $${amount}! You will be redirected to our secure payment processor.`);
+        }
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 85, 48, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2c5530, #4a7c59)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.mission-card, .vision-card, .area-card, .contact-card, .leadership-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
